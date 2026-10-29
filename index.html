@@ -40,9 +40,13 @@
   .btn-ghost:hover{border-color:var(--gold)}
 
   /* hero */
-  .hero{min-height:100vh;display:flex;align-items:center;padding-top:76px}
-  .hero-grid{max-width:880px}
-  .hero{background:radial-gradient(60% 60% at 85% 30%,rgba(212,173,95,.12),transparent 70%),linear-gradient(rgba(212,173,95,.05) 1px,transparent 1px) 0 0/100% 80px}
+  .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:76px}
+  .hero-grid{max-width:920px;text-align:center}
+  .hero .eyebrow{justify-content:center}
+  .hero .eyebrow:after{content:"";width:40px;height:1px;background:var(--gold)}
+  .hero .lead{margin-left:auto;margin-right:auto;max-width:600px}
+  .hero .cta-row,.hero .pillars{justify-content:center}
+  .hero{background:radial-gradient(60% 55% at 50% 35%,rgba(212,173,95,.12),transparent 70%),linear-gradient(rgba(212,173,95,.05) 1px,transparent 1px) 0 0/100% 80px}
   .eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:26px}
   .eyebrow:before{content:"";width:40px;height:1px;background:var(--gold)}
   h1{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1.04;letter-spacing:-.04em}
@@ -150,9 +154,42 @@
     .panel{padding:28px}
     .pillars{gap:16px;flex-wrap:wrap}
     .nav-cta{display:none}
-
   }
-  @media (max-width:520px){.timeline{grid-template-columns:1fr}.step{padding:0}.stat .v{font-size:2.6rem}}
+  @media (max-width:640px){
+    .wrap{padding:0 20px}
+    nav{height:64px}
+    header{background:rgba(20,12,7,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .hero{padding:96px 0 90px;min-height:auto;min-height:100svh}
+    .eyebrow{font-size:.62rem;letter-spacing:.28em;gap:10px;margin-bottom:20px}
+    .eyebrow:before,.hero .eyebrow:after{width:24px}
+    h1{font-size:2.35rem;line-height:1.08}
+    .hero h1 br{display:none}
+    .lead{font-size:.98rem;margin:22px auto 32px}
+    .hero .cta-row{flex-direction:column;gap:12px}
+    .hero .cta-row .btn{justify-content:center;width:100%}
+    .pillars{margin-top:40px;font-size:.6rem;letter-spacing:.2em;gap:14px;justify-content:center}
+    .scroll-hint{display:none}
+    section{padding:72px 0}
+    .sec-head{margin-bottom:40px}
+    h2{font-size:1.9rem}
+    .ticker{padding:16px 0}.ticker span{font-size:1.05rem}
+    .card{padding:32px 24px 28px}
+    .card .num{font-size:2.4rem}
+    .tag{top:20px;right:20px}
+    .panel{padding:22px;border-radius:18px}
+    .opt{padding:10px 14px;font-size:.8rem}
+    .result h3{font-size:1.8rem}
+    .result .btn{width:100%;justify-content:center}
+    .timeline{grid-template-columns:1fr;row-gap:36px}
+    .step{padding:0;display:grid;grid-template-columns:52px 1fr;column-gap:18px}
+    .step .dot{width:52px;height:52px;margin:0;grid-row:span 2;font-size:.85rem}
+    .stat{padding:28px 20px}.stat .v{font-size:2.2rem}.stat .l{font-size:.62rem;letter-spacing:.15em}
+    summary{font-size:1.05rem}details{padding:20px 0}
+    .final{padding:96px 0}.final h2{font-size:2.3rem}
+    .final .btn{width:100%;justify-content:center}
+    .foot{flex-direction:column;text-align:center;gap:12px}
+    .wa{width:52px;height:52px;right:16px;bottom:16px}
+  }
 </style>
 </head>
 <body>
@@ -174,7 +211,7 @@
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow reveal">Contabilidade estratégica</div>
-        <h1 class="reveal">Sua empresa,<br>construída sobre <span class="gold">números certos.</span></h1>
+        <h1 class="reveal">Sua empresa, <br>construída sobre <span class="gold">números certos.</span></h1>
         <p class="lead reveal">Do MEI ao Simples Nacional: abrimos, organizamos e fazemos sua empresa pagar só o imposto que deve — com estratégia, segurança e resultado.</p>
         <div class="cta-row reveal">
           <a class="btn btn-gold" href="#diagnostico">Fazer diagnóstico grátis →</a>
@@ -326,7 +363,7 @@
   setTimeout(()=>document.querySelectorAll('.hero .reveal').forEach(el=>el.classList.add('in')),100);
 
   // 3D tilt cards
-  document.querySelectorAll('.card').forEach(c=>{
+  if(matchMedia('(hover:hover)').matches)document.querySelectorAll('.card').forEach(c=>{
     c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
       c.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg) translateY(-6px)`;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
     c.addEventListener('mouseleave',()=>c.style.transform='');
