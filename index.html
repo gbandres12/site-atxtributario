@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#140c07; --bg2:#1d120a; --card:#22160d;
+    --bg:#0b1d13; --bg2:#10281a; --card:#143120;
     --gold:#d4ad5f; --gold2:#f3d58d; --gold3:#9c7434;
-    --text:#efe4d2; --muted:#a89580; --line:rgba(212,173,95,.18);
+    --text:#f1ebdd; --muted:#9db3a5; --line:rgba(212,173,95,.18);
     --grad:linear-gradient(135deg,#f6dc98 0%,#d4ad5f 40%,#9c7434 70%,#e9c97c 100%);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +26,7 @@
 
   /* nav */
   header{position:fixed;top:0;left:0;right:0;z-index:20;transition:.4s}
-  header.scrolled{background:rgba(20,12,7,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  header.scrolled{background:rgba(11,29,19,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   nav{display:flex;align-items:center;justify-content:space-between;height:76px}
   .brand{display:flex;align-items:center;gap:12px}
   .logo,.brand .logo{letter-spacing:-.04em;text-transform:none;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.04em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -34,7 +34,7 @@
   .links{display:flex;gap:34px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
   .links a{color:var(--muted);transition:.3s;white-space:nowrap}.links a:hover{color:var(--gold2)}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;cursor:pointer;border:0;transition:.35s;white-space:nowrap}
-  .btn-gold{background:var(--grad);color:#1a0f07;box-shadow:0 10px 40px -10px rgba(212,173,95,.6)}
+  .btn-gold{background:var(--grad);color:#0b1d13;box-shadow:0 10px 40px -10px rgba(212,173,95,.6)}
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(212,173,95,.8)}
   .btn-ghost{border:1px solid var(--line);color:var(--text)}
   .btn-ghost:hover{border-color:var(--gold)}
@@ -64,7 +64,7 @@
   .sec-head p{color:var(--muted);margin-top:20px;font-size:1.02rem}
 
   /* ticker */
-  .ticker{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:rgba(20,12,7,.6);backdrop-filter:blur(6px)}
+  .ticker{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:rgba(11,29,19,.6);backdrop-filter:blur(6px)}
   .ticker-track{display:flex;gap:60px;white-space:nowrap;animation:tick 40s linear infinite;width:max-content}
   .ticker span{font-family:"Space Grotesk",sans-serif;font-size:1.3rem;letter-spacing:-.02em;color:var(--muted)}
   .ticker span em{font-style:normal;color:var(--gold);margin-left:60px}
@@ -72,7 +72,7 @@
 
   /* services */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1200px}
-  .card{position:relative;padding:44px 36px 40px;border-radius:22px;background:linear-gradient(160deg,rgba(45,29,16,.85),rgba(25,16,9,.85));border:1px solid var(--line);transform-style:preserve-3d;transition:transform .2s ease-out,border-color .4s;backdrop-filter:blur(8px);overflow:hidden}
+  .card{position:relative;padding:44px 36px 40px;border-radius:22px;background:linear-gradient(160deg,rgba(22,54,36,.85),rgba(12,32,21,.85));border:1px solid var(--line);transform-style:preserve-3d;transition:transform .2s ease-out,border-color .4s;backdrop-filter:blur(8px);overflow:hidden}
   .card:hover{border-color:rgba(212,173,95,.5)}
   .card:after{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(243,213,141,.14),transparent 40%);pointer-events:none;opacity:0;transition:.3s}
   .card:hover:after{opacity:1}
@@ -86,13 +86,13 @@
 
   /* diagnostic */
   .diag{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
-  .panel{border:1px solid var(--line);border-radius:24px;padding:40px;background:rgba(29,18,10,.82);backdrop-filter:blur(10px)}
+  .panel{border:1px solid var(--line);border-radius:24px;padding:40px;background:rgba(16,40,26,.82);backdrop-filter:blur(10px)}
   .q{margin-bottom:30px}
   .q label{display:block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
   .opts{display:flex;flex-wrap:wrap;gap:10px}
   .opt{padding:11px 18px;border-radius:999px;border:1px solid var(--line);font-size:.85rem;cursor:pointer;transition:.25s;background:transparent;color:var(--text);font-family:inherit}
   .opt:hover{border-color:var(--gold)}
-  .opt.on{background:var(--grad);color:#1a0f07;border-color:transparent;font-weight:500}
+  .opt.on{background:var(--grad);color:#0b1d13;border-color:transparent;font-weight:500}
   input[type=range]{width:100%;accent-color:var(--gold)}
   .rev{font-family:"JetBrains Mono",monospace;font-size:2rem;letter-spacing:-.03em;margin-top:6px}
   .result{min-height:100%;display:flex;flex-direction:column;justify-content:center}
@@ -113,7 +113,7 @@
   .step p{color:var(--muted);font-size:.9rem}
 
   /* stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(20,12,7,.7);backdrop-filter:blur(8px)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(11,29,19,.7);backdrop-filter:blur(8px)}
   .stat{padding:44px 30px;border-right:1px solid var(--line)}
   .stat:last-child{border-right:0}
   .stat .v{font-family:"JetBrains Mono",monospace;font-size:3rem;letter-spacing:-.05em;line-height:1}
@@ -158,7 +158,7 @@
   @media (max-width:640px){
     .wrap{padding:0 20px}
     nav{height:64px}
-    header{background:rgba(20,12,7,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    header{background:rgba(11,29,19,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
     .hero{padding:96px 0 90px;min-height:auto;min-height:100svh}
     .eyebrow{font-size:.62rem;letter-spacing:.28em;gap:10px;margin-bottom:20px}
     .eyebrow:before,.hero .eyebrow:after{width:24px}
@@ -344,7 +344,7 @@
 </footer>
 
 <a class="wa" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="#1a0f07"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#0b1d13"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
 </a>
 
 <script>
