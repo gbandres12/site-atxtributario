@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATX Contabilidade — MEI, Abertura de Empresas e Simples Nacional</title>
+<meta name="description" content="ATX: contabilidade estratégica para MEI, abertura de empresas e empresas do Simples Nacional. Estratégia, segurança e resultados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#140c07; --bg2:#1d120a; --card:#22160d;
+    --gold:#d4ad5f; --gold2:#f3d58d; --gold3:#9c7434;
+    --text:#efe4d2; --muted:#a89580; --line:rgba(212,173,95,.18);
+    --grad:linear-gradient(135deg,#f6dc98 0%,#d4ad5f 40%,#9c7434 70%,#e9c97c 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Montserrat,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:"Cormorant Garamond",serif}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  #gl{position:fixed;inset:0;z-index:0;pointer-events:none}
+  main,header,footer{position:relative;z-index:1}
+
+  /* nav */
+  header{position:fixed;top:0;left:0;right:0;z-index:20;transition:.4s}
+  header.scrolled{background:rgba(20,12,7,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:30px;width:auto;border-radius:3px}
+  .brand span{font-size:.62rem;letter-spacing:.35em;color:var(--muted);text-transform:uppercase}
+  .links{display:flex;gap:34px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  .links a{color:var(--muted);transition:.3s}.links a:hover{color:var(--gold2)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;cursor:pointer;border:0;transition:.35s}
+  .btn-gold{background:var(--grad);color:#1a0f07;box-shadow:0 10px 40px -10px rgba(212,173,95,.6)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(212,173,95,.8)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold)}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:76px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .eyebrow:before{content:"";width:40px;height:1px;background:var(--gold)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(2.8rem,6.4vw,5.6rem);line-height:1.02;letter-spacing:-.01em}
+  .lead{margin:28px 0 40px;max-width:520px;color:var(--muted);font-size:1.05rem}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  .pillars{display:flex;gap:28px;margin-top:56px;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+  .pillars b{color:var(--gold);font-weight:500}
+  .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scroll-hint i{width:1px;height:48px;background:linear-gradient(var(--gold),transparent);animation:drip 2s infinite}
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  section{padding:140px 0}
+  .sec-head{max-width:720px;margin-bottom:70px}
+  h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(2.2rem,4.4vw,3.8rem);line-height:1.05}
+  .sec-head p{color:var(--muted);margin-top:20px;font-size:1.02rem}
+
+  /* ticker */
+  .ticker{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:rgba(20,12,7,.6);backdrop-filter:blur(6px)}
+  .ticker-track{display:flex;gap:60px;white-space:nowrap;animation:tick 40s linear infinite;width:max-content}
+  .ticker span{font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--muted)}
+  .ticker span em{font-style:normal;color:var(--gold);margin-left:60px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* services */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1200px}
+  .card{position:relative;padding:44px 36px 40px;border-radius:22px;background:linear-gradient(160deg,rgba(45,29,16,.85),rgba(25,16,9,.85));border:1px solid var(--line);transform-style:preserve-3d;transition:transform .2s ease-out,border-color .4s;backdrop-filter:blur(8px);overflow:hidden}
+  .card:hover{border-color:rgba(212,173,95,.5)}
+  .card:after{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(243,213,141,.14),transparent 40%);pointer-events:none;opacity:0;transition:.3s}
+  .card:hover:after{opacity:1}
+  .card .num{font-family:"Cormorant Garamond",serif;font-size:4.4rem;line-height:1;transform:translateZ(50px)}
+  .card h3{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:500;margin:22px 0 12px;transform:translateZ(40px)}
+  .card p{color:var(--muted);font-size:.95rem;transform:translateZ(25px)}
+  .card ul{list-style:none;margin-top:24px;border-top:1px solid var(--line);padding-top:20px;transform:translateZ(20px)}
+  .card li{font-size:.86rem;padding:7px 0;display:flex;gap:12px}
+  .card li:before{content:"◆";color:var(--gold);font-size:.6rem;margin-top:5px}
+  .tag{position:absolute;top:24px;right:24px;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--gold)}
+
+  /* diagnostic */
+  .diag{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+  .panel{border:1px solid var(--line);border-radius:24px;padding:40px;background:rgba(29,18,10,.82);backdrop-filter:blur(10px)}
+  .q{margin-bottom:30px}
+  .q label{display:block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .opts{display:flex;flex-wrap:wrap;gap:10px}
+  .opt{padding:11px 18px;border-radius:999px;border:1px solid var(--line);font-size:.85rem;cursor:pointer;transition:.25s;background:transparent;color:var(--text);font-family:inherit}
+  .opt:hover{border-color:var(--gold)}
+  .opt.on{background:var(--grad);color:#1a0f07;border-color:transparent;font-weight:500}
+  input[type=range]{width:100%;accent-color:var(--gold)}
+  .rev{font-family:"Cormorant Garamond",serif;font-size:2.4rem;margin-top:6px}
+  .result{min-height:100%;display:flex;flex-direction:column;justify-content:center}
+  .result .badge{font-size:.66rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+  .result h3{font-family:"Cormorant Garamond",serif;font-size:3rem;font-weight:500;line-height:1.05;margin:12px 0 18px}
+  .result p{color:var(--muted)}
+  .result .steps{margin:26px 0 32px;display:grid;gap:12px}
+  .result .steps div{display:flex;gap:14px;align-items:flex-start;font-size:.92rem}
+  .result .steps b{min-width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-weight:500;font-size:.75rem;color:var(--gold)}
+  .fine{font-size:.72rem;color:var(--muted);margin-top:18px;opacity:.8}
+
+  /* process */
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+  .timeline:before{content:"";position:absolute;top:32px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .step{padding:0 24px}
+  .dot{width:64px;height:64px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:var(--gold2);margin-bottom:28px;position:relative;box-shadow:0 0 0 8px var(--bg),0 0 40px rgba(212,173,95,.25)}
+  .step h4{font-family:"Cormorant Garamond",serif;font-size:1.6rem;font-weight:500;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:.9rem}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(20,12,7,.7);backdrop-filter:blur(8px)}
+  .stat{padding:44px 30px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat .v{font-family:"Cormorant Garamond",serif;font-size:3.6rem;line-height:1}
+  .stat .l{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+  /* faq */
+  .faq{max-width:860px}
+  details{border-bottom:1px solid var(--line);padding:26px 0}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:"Cormorant Garamond",serif;font-size:1.55rem}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";color:var(--gold);transition:.3s;font-family:Montserrat}
+  details[open] summary:after{transform:rotate(45deg)}
+  details p{color:var(--muted);margin-top:14px;max-width:720px}
+
+  /* cta */
+  .final{text-align:center;padding:160px 0}
+  .final h2{font-size:clamp(2.6rem,6vw,5.4rem);max-width:900px;margin:0 auto 28px}
+  .final p{color:var(--muted);max-width:540px;margin:0 auto 44px}
+  footer{border-top:1px solid var(--line);padding:50px 0;background:var(--bg)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font-size:.8rem;color:var(--muted)}
+  .wa{position:fixed;right:22px;bottom:22px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:.3s}
+  .wa:hover{transform:scale(1.08)}
+
+  .reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .links{display:none}
+    .hero-grid,.diag{grid-template-columns:1fr}
+    .hero-space{display:none}
+    .cards{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr 1fr;row-gap:50px}
+    .timeline:before{display:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .stat:nth-child(2){border-right:0}
+    .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    section{padding:100px 0}
+    .panel{padding:28px}
+    .pillars{gap:16px;flex-wrap:wrap}
+    .nav-cta{display:none}
+    .hero{align-items:flex-end;padding-bottom:120px}
+  }
+  @media (max-width:520px){.timeline{grid-template-columns:1fr}.step{padding:0}.stat .v{font-size:2.6rem}}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<header id="top">
+  <div class="wrap">
+    <nav>
+      <a href="#" class="brand"><img src="assets/logo-wordmark.webp" alt="ATX"><span>Contabilidade</span></a>
+      <div class="links">
+        <a href="#servicos">Serviços</a><a href="#diagnostico">Diagnóstico</a><a href="#processo">Como funciona</a><a href="#faq">Dúvidas</a>
+      </div>
+      <a class="btn btn-gold nav-cta" href="#contato">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow reveal">Contabilidade estratégica</div>
+        <h1 class="reveal">Sua empresa,<br>construída sobre <span class="gold">números certos.</span></h1>
+        <p class="lead reveal">Do MEI ao Simples Nacional: abrimos, organizamos e fazemos sua empresa pagar só o imposto que deve — com estratégia, segurança e resultado.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-gold" href="#diagnostico">Fazer diagnóstico grátis →</a>
+          <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="pillars reveal"><span><b>01</b> Estratégia</span><span><b>02</b> Segurança</span><span><b>03</b> Resultados</span></div>
+      </div>
+      <div class="hero-space"></div>
+    </div>
+    <div class="scroll-hint">Role<i></i></div>
+  </section>
+
+  <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">O que fazemos</div>
+        <h2>Três frentes. <span class="gold">Um só parceiro</span> para crescer.</h2>
+        <p>Começamos onde você está hoje e acompanhamos cada degrau — sem você precisar trocar de contador quando a empresa cresce.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="tag">Comece aqui</span>
+          <div class="num gold">01</div>
+          <h3>MEI</h3>
+          <p>Formalização, DAS em dia e a hora certa de deixar de ser MEI — antes que o limite vire multa.</p>
+          <ul><li>Abertura e regularização do CNPJ</li><li>Emissão de notas e DASN anual</li><li>Monitoramento do limite de faturamento</li><li>Transição planejada para ME</li></ul>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Do zero ao CNPJ</span>
+          <div class="num gold">02</div>
+          <h3>Abertura de Empresas</h3>
+          <p>Escolhemos com você o tipo societário, CNAE e regime tributário que custam menos desde o primeiro dia.</p>
+          <ul><li>Contrato social e registro</li><li>CNAE e enquadramento estratégico</li><li>Inscrições municipal e estadual</li><li>Alvarás e licenças</li></ul>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Crescimento</span>
+          <div class="num gold">03</div>
+          <h3>Simples Nacional</h3>
+          <p>Contabilidade completa com planejamento tributário contínuo — anexo certo, Fator R e imposto otimizado.</p>
+          <ul><li>Apuração do DAS e obrigações</li><li>Planejamento com Fator R</li><li>Folha de pagamento e pró-labore</li><li>Relatórios gerenciais mensais</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diagnostico">
+    <div class="wrap diag">
+      <div class="reveal">
+        <div class="eyebrow">Diagnóstico em 30 segundos</div>
+        <h2>Qual o <span class="gold">próximo passo</span> da sua empresa?</h2>
+        <p style="color:var(--muted);margin:20px 0 36px">Responda três perguntas e veja o caminho que recomendamos.</p>
+        <div class="panel">
+          <div class="q"><label>Sua situação hoje</label>
+            <div class="opts" data-q="sit">
+              <button class="opt on" data-v="ideia">Ainda não tenho CNPJ</button>
+              <button class="opt" data-v="mei">Sou MEI</button>
+              <button class="opt" data-v="me">Já tenho empresa</button>
+            </div></div>
+          <div class="q"><label>Atividade principal</label>
+            <div class="opts" data-q="atv">
+              <button class="opt on" data-v="servico">Serviços</button>
+              <button class="opt" data-v="comercio">Comércio</button>
+              <button class="opt" data-v="industria">Indústria</button>
+            </div></div>
+          <div class="q"><label>Faturamento anual estimado</label>
+            <input type="range" id="fat" min="20000" max="4800000" step="10000" value="120000">
+            <div class="rev gold" id="fatv">R$ 120.000</div></div>
+        </div>
+      </div>
+      <div class="panel result reveal" id="result"></div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Simples para você. <span class="gold">Rigoroso</span> por trás.</h2>
+      </div>
+      <div class="timeline">
+        <div class="step reveal"><div class="dot">I</div><h4>Conversa</h4><p>Entendemos seu negócio, metas e números em uma reunião sem compromisso.</p></div>
+        <div class="step reveal"><div class="dot">II</div><h4>Estratégia</h4><p>Desenhamos o enquadramento e o regime que pagam menos imposto com segurança.</p></div>
+        <div class="step reveal"><div class="dot">III</div><h4>Execução</h4><p>Abertura, migração ou rotina contábil: cuidamos de cada guia e prazo.</p></div>
+        <div class="step reveal"><div class="dot">IV</div><h4>Resultado</h4><p>Relatórios claros todo mês e revisões periódicas conforme você cresce.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat"><div class="v gold" data-count="100">0</div><div class="l">% digital</div></div>
+        <div class="stat"><div class="v gold" data-count="24">0</div><div class="l">horas p/ responder</div></div>
+        <div class="stat"><div class="v gold" data-count="3">0</div><div class="l">frentes especializadas</div></div>
+        <div class="stat"><div class="v gold" data-count="0">0</div><div class="l">multas por atraso</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Dúvidas frequentes</div><h2>Perguntas <span class="gold">diretas.</span></h2></div>
+      <div class="faq reveal">
+        <details><summary>Quanto tempo leva para abrir uma empresa?</summary><p>Depende do município e da atividade, mas na maioria dos casos o CNPJ sai em poucos dias úteis. Cuidamos de todo o trâmite e avisamos cada etapa.</p></details>
+        <details><summary>Quando devo deixar de ser MEI?</summary><p>Quando o faturamento se aproxima do limite anual, quando você precisa contratar mais de um funcionário ou entrar com sócio, ou quando sua atividade não é permitida no MEI. Planejar a migração antes evita cobrança retroativa.</p></details>
+        <details><summary>O que é o Fator R?</summary><p>É a relação entre folha de pagamento (incluindo pró-labore) e faturamento. Para várias atividades de serviço, manter esse índice em 28% ou mais leva a empresa do Anexo V para o Anexo III do Simples, com alíquotas menores.</p></details>
+        <details><summary>Posso trocar de contador no meio do ano?</summary><p>Sim. Fazemos a transição com o escritório atual, revisamos o histórico e corrigimos o que for necessário, sem interromper suas obrigações.</p></details>
+        <details><summary>O atendimento é online?</summary><p>Sim, 100% digital — por WhatsApp, e-mail e videochamada, com documentos organizados na nuvem.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contato">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="justify-content:center">Vamos começar</div>
+      <h2>Menos burocracia. <span class="gold">Mais empresa.</span></h2>
+      <p>Fale com um especialista da ATX e receba uma proposta sob medida para o seu momento.</p>
+      <a class="btn btn-gold" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Falar no WhatsApp →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/logo-wordmark.webp" alt="ATX" style="height:34px">
+    <span>Estratégia • Segurança • Resultados</span>
+    <span>© <span id="yr"></span> ATX Contabilidade</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#1a0f07"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+</a>
+
+<script>
+  // ticker
+  const words=["Abertura de empresas","MEI","Simples Nacional","Fator R","Planejamento tributário","Folha e pró-labore","Relatórios gerenciais"];
+  document.getElementById('ticker').innerHTML=[...words,...words].map(w=>`<span>${w}<em>◆</em></span>`).join('');
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // header
+  addEventListener('scroll',()=>document.getElementById('top').classList.toggle('scrolled',scrollY>30));
+
+  // reveal + counters
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+    e.target.querySelectorAll('[data-count]').forEach(el=>{const t=+el.dataset.count;let s=null;const f=ts=>{s??=ts;const p=Math.min((ts-s)/1400,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+  setTimeout(()=>document.querySelectorAll('.hero .reveal').forEach(el=>el.classList.add('in')),100);
+
+  // 3D tilt cards
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.transform=`rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg) translateY(-6px)`;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+    c.addEventListener('mouseleave',()=>c.style.transform='');
+  });
+
+  // diagnostic
+  const st={sit:'ideia',atv:'servico',fat:120000};
+  const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+  document.querySelectorAll('.opts').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;
+    g.querySelectorAll('.opt').forEach(o=>o.classList.remove('on'));b.classList.add('on');st[g.dataset.q]=b.dataset.v;render()}));
+  const fat=document.getElementById('fat');
+  fat.addEventListener('input',()=>{st.fat=+fat.value;document.getElementById('fatv').textContent=brl(st.fat);render()});
+  function render(){
+    const MEI=81000;let badge,title,text,steps;
+    if(st.fat>MEI||st.atv==='industria'&&st.fat>MEI){
+      badge='Recomendação';title=st.sit==='me'?'Otimizar seu Simples Nacional':'Empresa no Simples Nacional';
+      text=`Com ${brl(st.fat)} por ano, o MEI não comporta seu negócio. O Simples Nacional é o caminho — e o ganho está nos detalhes do enquadramento.`;
+      steps=st.atv==='servico'?['Análise de CNAE e anexo do Simples','Estratégia de pró-labore para o Fator R','Contabilidade mensal com relatórios']:['Revisão de CNAE e anexo correto','Segregação de receitas e ICMS-ST','Contabilidade mensal com relatórios'];
+      if(st.sit==='mei'){steps.unshift('Desenquadramento planejado do MEI')}
+    }else{
+      if(st.sit==='me'){badge='Recomendação';title='Revisar seu regime atual';text='Seu faturamento é compatível com o MEI. Vale analisar se sua atividade e estrutura permitem reduzir custos.';steps=['Diagnóstico da empresa atual','Comparativo MEI × Simples','Plano de ação sem riscos']}
+      else if(st.sit==='mei'){badge='Recomendação';title='MEI organizado e pronto para crescer';text=`Você está ${st.fat>MEI*.8?'perto do limite':'dentro do limite'} do MEI. Nosso papel é manter tudo em dia e preparar a virada no momento certo.`;steps=['DAS e declaração anual em dia','Alerta automático de limite','Transição para ME quando fizer sentido']}
+      else{badge='Recomendação';title='Abrir como MEI';text='Para começar com custo mínimo, o MEI costuma ser o melhor ponto de partida — se sua atividade for permitida.';steps=['Validação da atividade no MEI','Abertura do CNPJ','Primeiras notas fiscais com orientação']}
+    }
+    document.getElementById('result').innerHTML=`<div class="badge">${badge}</div><h3 class="gold">${title}</h3><p>${text}</p>
+      <div class="steps">${steps.map((s,i)=>`<div><b>${i+1}</b><span>${s}</span></div>`).join('')}</div>
+      <a class="btn btn-gold" href="#contato" style="align-self:flex-start">Quero esse plano →</a>
+      <p class="fine">Indicação preliminar. A recomendação final depende da análise completa da sua atividade e documentos.</p>`;
+  }
+  render();
+</script>
+
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+
+const canvas=document.getElementById('gl');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.1;
+const scene=new THREE.Scene();
+scene.environment=new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(),.04).texture;
+const camera=new THREE.PerspectiveCamera(35,1,.1,100);camera.position.set(0,0,12);
+
+const gold=new THREE.MeshStandardMaterial({color:0xd8b06a,metalness:1,roughness:.22});
+const goldDark=new THREE.MeshStandardMaterial({color:0xa9803f,metalness:1,roughness:.35});
+
+// ATX monogram: an elegant "A" (two blades) crossed by an "X" stroke
+const mono=new THREE.Group();
+const ext={depth:.35,bevelEnabled:true,bevelThickness:.06,bevelSize:.05,bevelSegments:4,curveSegments:24};
+function blade(pts){const s=new THREE.Shape();s.moveTo(...pts[0]);pts.slice(1).forEach(p=>s.lineTo(...p));s.closePath();return s}
+// thin left leg of A
+const left=new THREE.Mesh(new THREE.ExtrudeGeometry(blade([[-1.9,-2],[-1.35,-2],[0.05,1.5],[-.1,1.9]]),ext),goldDark);
+// thick right leg (also X's main diagonal)
+const rs=new THREE.Shape();rs.moveTo(-.25,2.4);rs.quadraticCurveTo(.4,1.4,1.9,-2);rs.lineTo(.95,-2);rs.quadraticCurveTo(-.2,.8,-.65,1.7);rs.closePath();
+const right=new THREE.Mesh(new THREE.ExtrudeGeometry(rs,ext),gold);
+// X counter stroke
+const xs=new THREE.Mesh(new THREE.ExtrudeGeometry(blade([[-.6,-2],[-.2,-2],[2.3,.75],[1.95,.75]]),ext),gold);
+xs.position.z=.45;
+[left,right,xs].forEach(m=>{m.geometry.center?0:0;mono.add(m)});
+mono.children.forEach(m=>m.position.z-=.17);
+scene.add(mono);
+
+// orbit rings
+const rings=new THREE.Group();
+[3.2,3.9].forEach((r,i)=>{const m=new THREE.Mesh(new THREE.TorusGeometry(r,.012,8,200),gold);m.rotation.x=Math.PI/2+(i?.5:-.3);m.rotation.y=i?.3:-.2;rings.add(m)});
+scene.add(rings);
+
+// floating coins (cylinders) = numbers in orbit
+const coins=[];
+const coinGeo=new THREE.CylinderGeometry(.22,.22,.04,48);
+for(let i=0;i<14;i++){const c=new THREE.Mesh(coinGeo,i%3?gold:goldDark);
+  c.userData={r:3+Math.random()*2.2,a:Math.random()*Math.PI*2,s:.1+Math.random()*.2,y:(Math.random()-.5)*3,spin:Math.random()*2};
+  const k=.5+Math.random()*.8;c.scale.setScalar(k);scene.add(c);coins.push(c)}
+
+// gold dust
+const N=900,pos=new Float32Array(N*3);
+for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*30;pos[i*3+1]=(Math.random()-.5)*40;pos[i*3+2]=(Math.random()-.5)*14-3}
+const dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+const dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0xe8c47a,size:.035,transparent:true,opacity:.7}));
+scene.add(dust);
+
+const key=new THREE.DirectionalLight(0xffe2b0,2.2);key.position.set(4,5,6);scene.add(key);
+const rim=new THREE.PointLight(0xffb86b,30,20);rim.position.set(-4,-2,3);scene.add(rim);
+
+const world=new THREE.Group();world.add(mono,rings,...coins);scene.add(world);
+
+let mx=0,my=0,tx=0,ty=0;
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+addEventListener('resize',resize);resize();
+
+const clock=new THREE.Clock();
+(function loop(){
+  const t=clock.getElapsedTime(),p=Math.min(scrollY/innerHeight,4);
+  tx+=(mx-tx)*.05;ty+=(my-ty)*.05;
+  const mobile=innerWidth<900;
+  // hero: right side; on scroll it drifts and recedes as a backdrop
+  const baseX=mobile?0:2.7;
+  world.position.x=THREE.MathUtils.lerp(baseX,mobile?0:-3.5,Math.min(p,1)*.9)+Math.sin(p*1.3)*.4*(p>1?1:0);
+  world.position.y=Math.sin(t*.8)*.12+(mobile?1.2:0);
+  world.position.z=-p*2.2;
+  world.scale.setScalar(mobile?.5:.68);
+  mono.rotation.y=t*.25+tx*1.2+p*1.6;
+  mono.rotation.x=ty*.6+Math.sin(t*.5)*.05;
+  rings.rotation.z=t*.12;rings.rotation.x=ty*.4;
+  coins.forEach(c=>{const u=c.userData;u.a+=u.s*.01;c.position.set(Math.cos(u.a)*u.r,u.y+Math.sin(t+u.a)*.25,Math.sin(u.a)*u.r);c.rotation.x=t*u.spin;c.rotation.z=t*.7})
+  dust.rotation.y=t*.02;dust.position.y=p*2;
+  canvas.style.opacity=p>1?Math.max(.35,1-(p-1)*.3):1;
+  renderer.render(scene,camera);requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
