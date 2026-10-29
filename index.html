@@ -112,6 +112,13 @@
   .step h4{font-family:"Space Grotesk",sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:-.02em;margin-bottom:10px}
   .step p{color:var(--muted);font-size:.9rem}
 
+  /* clients */
+  .clients{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .client{aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);transition:.4s}
+  .client img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) brightness(.92);transition:.5s}
+  .client:hover{border-color:rgba(212,173,95,.55);transform:translateY(-4px)}
+  .client:hover img{filter:none;transform:scale(1.04)}
+
   /* stats */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(11,29,19,.7);backdrop-filter:blur(8px)}
   .stat{padding:44px 30px;border-right:1px solid var(--line)}
@@ -145,6 +152,8 @@
     .links{display:none}
     .diag{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr}
+    .clients{grid-template-columns:1fr 1fr;gap:12px}
+    .client{border-radius:14px}
     .timeline{grid-template-columns:1fr 1fr;row-gap:50px}
     .timeline:before{display:none}
     .stats{grid-template-columns:1fr 1fr}
@@ -199,7 +208,7 @@
     <nav>
       <a href="#" class="brand"><span class="logo">ATX</span><span>Contabilidade</span></a>
       <div class="links">
-        <a href="#servicos">Serviços</a><a href="#diagnostico">Diagnóstico</a><a href="#processo">Como funciona</a><a href="#faq">Dúvidas</a>
+        <a href="#servicos">Serviços</a><a href="#diagnostico">Diagnóstico</a><a href="#processo">Como funciona</a><a href="#clientes">Clientes</a><a href="#faq">Dúvidas</a>
       </div>
       <a class="btn btn-gold nav-cta" href="#contato">Fale conosco</a>
     </nav>
@@ -297,6 +306,24 @@
         <div class="step reveal"><div class="dot">02</div><h4>Estratégia</h4><p>Desenhamos o enquadramento e o regime que pagam menos imposto com segurança.</p></div>
         <div class="step reveal"><div class="dot">03</div><h4>Execução</h4><p>Abertura, migração ou rotina contábil: cuidamos de cada guia e prazo.</p></div>
         <div class="step reveal"><div class="dot">04</div><h4>Resultado</h4><p>Relatórios claros todo mês e revisões periódicas conforme você cresce.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Clientes</div>
+        <h2>Empresas que <span class="gold">confiam na ATX.</span></h2>
+        <p>Do agro ao turismo, da oficina à navegação: negócios de diferentes setores com a contabilidade em dia.</p>
+      </div>
+      <div class="clients">
+        <div class="client reveal"><img src="assets/clientes/apx.png" alt="APX Apaixonados por Viagem" loading="lazy"></div>
+        <div class="client reveal"><img src="assets/clientes/loja-do-sertanejo.png" alt="Loja do Sertanejo" loading="lazy"></div>
+        <div class="client reveal"><img src="assets/clientes/cba.webp" alt="CBA Agroinsumos" loading="lazy"></div>
+        <div class="client reveal"><img src="assets/clientes/granell.webp" alt="Granell" loading="lazy"></div>
+        <div class="client reveal"><img src="assets/clientes/wilmarzinho.png" alt="Wilmarzinho Autoservice" loading="lazy"></div>
+        <div class="client reveal"><img src="assets/clientes/nortenav.png" alt="Nortenav General Ships Services" loading="lazy"></div>
       </div>
     </div>
   </section>
