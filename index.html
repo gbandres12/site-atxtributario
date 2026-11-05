@@ -103,6 +103,15 @@
   .card li:before{content:"◆";color:var(--gold);font-size:.6rem;margin-top:5px}
   .tag{position:absolute;top:24px;right:24px;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--gold)}
 
+  /* segments */
+  .segs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .seg{display:block;padding:30px;border:1px solid var(--line);border-radius:20px;background:rgba(16,40,26,.6);transition:.35s}
+  .seg:hover{border-color:rgba(212,173,95,.6);transform:translateY(-4px)}
+  .seg small{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  .seg h3{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:1.4rem;letter-spacing:-.03em;margin:8px 0 10px}
+  .seg p{color:var(--muted);font-size:.9rem}
+  .seg span{display:inline-block;margin-top:18px;color:var(--gold);font-size:.82rem}
+
   /* diagnostic */
   .diag{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
   .panel{border:1px solid var(--line);border-radius:24px;padding:40px;background:rgba(16,40,26,.82);backdrop-filter:blur(10px)}
@@ -226,6 +235,7 @@
     .mock-body{grid-template-columns:1fr}.mock-side{display:none}
     .mock-main{padding:16px}.m-row{grid-template-columns:1fr}.m-hero .big{font-size:1.5rem}
     .region{grid-template-columns:1fr}
+    .segs{grid-template-columns:1fr}
     .region>div{padding:22px}
     .client{border-radius:14px}
     .timeline{grid-template-columns:1fr 1fr;row-gap:50px}
@@ -353,6 +363,17 @@
           <ul><li>Diagnóstico na Receita, SEFA-PA e Prefeitura</li><li>Entrega de declarações em atraso</li><li>Parcelamento de débitos do Simples</li><li>Reativação de CNPJ inapto</li></ul>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="segmentos" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Por segmento</div>
+        <h2>Cada negócio tem seus <span class="gold">impostos escondidos.</span></h2>
+        <p>Veja o que muda na contabilidade do seu segmento — e o que muitos contadores deixam passar.</p>
+      </div>
+      <div class="segs"><a class="seg reveal" href="/contabilidade-oficinas"><small>Contabilidade para</small><h3>Oficinas mecânicas</h3><p>Peças e mão de obra separadas, autopeças monofásicas e ICMS-ST.</p><span>Ver o que muda →</span></a><a class="seg reveal" href="/contabilidade-distribuidoras"><small>Contabilidade para</small><h3>Distribuidoras</h3><p>ICMS-ST, antecipação de ICMS, monofásicos e sublimite do Simples.</p><span>Ver o que muda →</span></a><a class="seg reveal" href="/contabilidade-panificadoras"><small>Contabilidade para</small><h3>Padarias e panificadoras</h3><p>Produção própria x revenda, bebidas monofásicas e folha de turnos.</p><span>Ver o que muda →</span></a></div>
     </div>
   </section>
 
@@ -515,6 +536,7 @@
   <div class="wrap foot">
     <span class="logo" style="font-size:1.8rem">ATX</span>
     <span>Contabilidade em Santarém – PA · Oeste do Pará e Amazonas</span>
+    <span><a href="/contabilidade-oficinas">Oficinas</a> · <a href="/contabilidade-distribuidoras">Distribuidoras</a> · <a href="/contabilidade-panificadoras">Padarias</a></span>
     <span>© <span id="yr"></span> ATX Contabilidade</span>
   </div>
 </footer>
