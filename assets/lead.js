@@ -1,7 +1,7 @@
 // Formulário de lead: valida, guarda os dados na sessão e leva para /obrigado
 (function(){
   // URL do App Script da planilha de leads (Implantar > App da Web). Vazio = não envia.
-  const LEAD_ENDPOINT='';
+  const LEAD_ENDPOINT='https://script.google.com/macros/s/AKfycbzS5Odov3dsPS8Zrkq97HBeGstRfkkfU1uhZeikxXLGRlv62fzYBRn-jBpyzZ2xlhz6/exec';
   const fmtTel=v=>{const d=v.replace(/\D/g,'').slice(0,11);
     if(d.length<3)return d;if(d.length<8)return `(${d.slice(0,2)}) ${d.slice(2)}`;
     return `(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`};
