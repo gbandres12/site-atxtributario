@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WXZ3DZG');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Obrigado | ATX Contabilidade</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1d13">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b1d13;--gold:#d4ad5f;--gold2:#f3d58d;--text:#f1ebdd;--muted:#9db3a5;--line:rgba(212,173,95,.18);--grad:linear-gradient(135deg,#f6dc98 0%,#d4ad5f 40%,#9c7434 70%,#e9c97c 100%)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;min-height:100svh;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 35%,rgba(212,173,95,.14),transparent 70%),var(--bg);color:var(--text);font-family:Inter,sans-serif;font-weight:300;text-align:center;padding:24px}
+  .logo{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.6rem;letter-spacing:-.04em;color:var(--gold2);margin-bottom:40px}
+  .ring{width:120px;height:120px;border-radius:50%;margin:0 auto 34px;display:grid;place-items:center;background:conic-gradient(var(--gold) var(--p,0%),rgba(157,179,165,.15) 0);transition:--p 1s linear}
+  .ring span{width:100px;height:100px;border-radius:50%;background:#0f251a;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:2rem;color:var(--gold2)}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:clamp(1.9rem,5vw,3rem);letter-spacing:-.04em;line-height:1.1}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{color:var(--muted);max-width:460px;margin:18px auto 34px}
+  a.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;background:var(--grad);color:#0b1d13;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;text-decoration:none}
+  small{display:block;margin-top:22px;color:var(--muted);font-size:.78rem}small a{color:var(--gold)}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXZ3DZG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<main>
+  <div class="logo">ATX</div>
+  <div class="ring" id="ring"><span id="n">5</span></div>
+  <h1>Obrigado<span id="nm"></span>! <span class="gold">Recebemos seu cadastro.</span></h1>
+  <p>Você será redirecionado para o nosso WhatsApp em <b id="n2">5</b> segundos para falar com um especialista.</p>
+  <a class="btn" id="go" href="https://wa.me/5592995096571">Ir para o WhatsApp agora</a>
+  <small><a href="/">Voltar para o site</a></small>
+</main>
+<script>
+  let d={};try{d=JSON.parse(sessionStorage.getItem('lead')||'{}')}catch(e){}
+  const first=(d.nome||'').trim().split(' ')[0];
+  if(first)document.getElementById('nm').textContent=', '+first;
+  const src=(d.origem||'').toLowerCase();
+  const origem=/face|insta|meta|ig|fb/.test(src)?'pelo Instagram':'pelo Google';
+  let msg=`Oi, vim ${origem} e tenho interesse em serviços contábeis.`;
+  if(d.nome)msg+=`\nNome: ${d.nome}`;
+  if(d.nicho)msg+=`\nSegmento: ${d.nicho}`;
+  if(d.faturamento)msg+=`\nFaturamento: ${d.faturamento}`;
+  const url='https://wa.me/5592995096571?text='+encodeURIComponent(msg);
+  const go=document.getElementById('go');go.href=url;
+  try{window.dataLayer=window.dataLayer||[];dataLayer.push({event:'lead_thankyou',nicho:d.nicho||'',faturamento:d.faturamento||''})}catch(e){}
+  go.addEventListener('click',()=>{try{dataLayer.push({event:'whatsapp_click',cta:'obrigado'})}catch(e){}});
+  let t=5;const ring=document.getElementById('ring');
+  const tick=()=>{document.getElementById('n').textContent=t;document.getElementById('n2').textContent=t;ring.style.setProperty('--p',((5-t)/5*100)+'%')};
+  tick();
+  const iv=setInterval(()=>{t--;if(t>=0)tick();if(t<=0)clearInterval(iv)},1000);
+  setTimeout(()=>{location.href=url},5000);
+</script>
+</body>
+</html>

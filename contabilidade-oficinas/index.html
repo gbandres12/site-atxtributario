@@ -64,6 +64,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:.8rem;color:var
   .mbar .btn{width:100%}footer{padding-bottom:110px}
 }
 </style>
+<link rel="stylesheet" href="/assets/form.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -106,13 +107,25 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:.8rem;color:var
 
   <section class="final"><div class="wrap">
     <h2>Quer saber se sua empresa <span class="gold">paga imposto a mais?</span></h2>
-    <p class="muted">Mande uma mensagem e receba uma análise inicial do seu caso, sem compromisso.</p>
-    <a class="btn btn-gold js-wa" data-cta="final" data-extra="Tenho uma oficina e quero revisar minha contabilidade." href="https://wa.me/5592995096571" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg> Falar com especialista</a>
+    <p class="muted">Deixe seu contato e receba uma análise inicial do seu caso, sem compromisso.</p>
+    <form class="lead-form" novalidate>
+      <label>Nome<input name="nome" autocomplete="name" placeholder="Seu nome" required></label>
+      <label>WhatsApp<input name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(93) 99999-9999" required></label>
+      <div class="row">
+        <label>Segmento<select name="nicho" required><option value="" disabled>Selecione</option><option>Comércio</option><option>Prestação de serviços</option><option selected>Oficina mecânica</option><option>Loja de autopeças</option><option>Distribuidora</option><option>Padaria / panificadora</option><option>Médico / clínica</option><option>MEI</option><option>Outro</option></select></label>
+        <label>Faturamento<select name="faturamento" required><option value="" disabled selected>Selecione</option><option>Ainda não faturo</option><option>Até R$ 81 mil por ano</option><option>De R$ 81 mil a R$ 360 mil</option><option>De R$ 360 mil a R$ 1,8 milhão</option><option>De R$ 1,8 milhão a R$ 4,8 milhões</option><option>Acima de R$ 4,8 milhões</option></select></label>
+      </div>
+      <div class="lead-err" role="alert"></div>
+      <button class="btn btn-gold" type="submit">Quero falar com um especialista →</button>
+      <p class="lead-priv">Seus dados são usados só para o nosso contato. Sem spam.</p>
+    </form>
+    <p class="lead-alt" style="margin-top:18px">Prefere ir direto? <a class="js-wa" data-cta="final-link" data-extra="Tenho uma oficina e quero revisar minha contabilidade." href="https://wa.me/5592995096571" target="_blank" rel="noopener">Fale no WhatsApp</a></p>
     <div class="others"><a href="/contabilidade-distribuidoras">Contabilidade para distribuidoras →</a><a href="/contabilidade-panificadoras">Contabilidade para panificadoras →</a><a href="/contabilidade-medicos">Contabilidade para médicos →</a><a href="/contabilidade-autopecas">Contabilidade para autopeças →</a><a href="/">Ver todos os serviços →</a></div>
   </div></section>
 </main>
 <footer><div class="wrap">© ATX Contabilidade · Santarém – PA · Oeste do Pará e Amazonas</div></footer>
 <div class="mbar"><a class="btn btn-gold js-wa" data-cta="barra-mobile" data-extra="Tenho uma oficina e quero revisar minha contabilidade." href="https://wa.me/5592995096571" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg> Falar no WhatsApp</a></div>
 <script src="/assets/wa.js"></script>
+<script src="/assets/lead.js"></script>
 </body>
 </html>
